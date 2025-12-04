@@ -68,6 +68,7 @@ nav li {
   margin: 0px auto;
   padding: 5%;
   box-sizing: border-box;
+  cursor: none;
 }
 .proj1 .main {
   width: 100%;
@@ -89,7 +90,7 @@ nav li {
   overflow: hidden;
   position: relative;
 }
-.proj1 img {
+.proj1 .main img {
   width: 100%;
   object-fit: cover;
   cursor: pointer;
@@ -117,4 +118,68 @@ nav li {
 }
 .proj1 p {
   margin-top: 20px;
+}
+.cursor02 {
+  position: absolute;
+  width: 30px;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+.cursor02 img {
+  width: 100%;
+}
+
+.proj2 {
+  width: 90%;
+  height: 100vh;
+  margin: 0px auto;
+  padding: 5%;
+  box-sizing: border-box;
+  cursor: none;
+  text-align: center;
+}
+.proj2 ul {
+  display: flex;
+  gap: 10px;
+  height: 80%;
+}
+.proj2 li {
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: calc(100% / 5);
+  height: 100%;
+  position: relative;
+  transition: 1s;
+}
+.proj2 li a {
+  display: block;
+  height: 100%;
+}
+.textWrap {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 1px 1px 5px #333;
+}
+.proj2 li img {
+  position: absolute;
+  bottom: 100px;
+  right: 30px;
+}
+.proj2 li:nth-child(3) a {
+  background: url(img/0814_가구-수정.png);
+  background-size: cover;
+}
+.proj2 li:nth-child(4) a {
+  background: url(img/0813_미술관시안.png);
+  background-size: cover;
+}
+.proj2 li:nth-child(5) a {
+  background: url(img/메인페이지.png);
+  background-size: cover;
 }

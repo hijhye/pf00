@@ -66,3 +66,40 @@ function Pro1render() {
   proj1Text.textContent = `${proj1List[i].text}`;
   proj1siteLink.href = `${proj1List[i].src}`;
 }
+
+document.addEventListener("mousemove", (e) => {
+  let mouseX = e.pageX - 15;
+  let mouseY = e.pageY - 15;
+
+  let cursor = document.querySelector(".cursor02");
+  cursor.style.left = mouseX + "px";
+  cursor.style.top = mouseY + "px";
+  cursor.style.display = "block";
+});
+
+let proj2li = document.querySelectorAll(".proj2 li");
+let proj2TextwrapAll = document.querySelectorAll(".proj2 .textWrap");
+console.log(proj2TextwrapAll);
+proj2li.forEach((item, index) => {
+  item.addEventListener("mouseenter", function () {
+    proj2li.forEach((item) => {
+      item.style.width = "15%";
+    });
+    item.style.width = "40%";
+    console.log(index);
+    proj2TextwrapAll.forEach((proj2Textwrap) => {
+      proj2Textwrap.style.display = "none";
+    });
+    proj2TextwrapAll[index].style.display = "flex";
+  });
+});
+proj2li.forEach((item) => {
+  item.addEventListener("mouseleave", function () {
+    proj2li.forEach((item) => {
+      item.style.width = "20%";
+    });
+    proj2TextwrapAll.forEach((proj2Textwrap) => {
+      proj2Textwrap.style.display = "none";
+    });
+  });
+});
