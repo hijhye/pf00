@@ -1,0 +1,120 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+img {
+  display: block;
+}
+@font-face {
+  font-family: "Presentation";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-1Thin.woff2")
+    format("woff2");
+  font-weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+  font-display: swap;
+}
+
+body {
+  width: 100%;
+  font-family: "Presentation";
+}
+h2 {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 48px;
+  font-weight: 500;
+}
+p {
+  font-size: 32px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 5%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+}
+nav ul {
+  display: flex;
+  gap: 20px;
+}
+nav li {
+  cursor: pointer;
+}
+.subTitle {
+  margin-bottom: 30px;
+}
+.proj1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  width: 90%;
+  height: 100vh;
+  margin: 0px auto;
+  padding: 5%;
+  box-sizing: border-box;
+}
+.proj1 .main {
+  width: 100%;
+}
+.proj1 .main > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proj1 i {
+  color: #ccc;
+  font-size: 30px;
+  cursor: pointer;
+}
+.proj1 .mainImage {
+  width: 80%;
+  margin: 0px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.proj1 img {
+  width: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+.proj1 .btnWrap {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  display: none;
+  gap: 30px;
+}
+.proj1 button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Presentation";
+}
+.proj1 .mainImage:hover .btnWrap {
+  display: flex;
+}
+.proj1 p {
+  margin-top: 20px;
+}
