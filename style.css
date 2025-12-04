@@ -46,6 +46,7 @@ header {
   box-sizing: border-box;
   position: fixed;
   top: 0;
+  z-index: 30;
 }
 nav ul {
   display: flex;
@@ -56,6 +57,7 @@ nav li {
 }
 .subTitle {
   margin-bottom: 30px;
+  width: 100%;
 }
 .proj1 {
   display: flex;
@@ -70,6 +72,22 @@ nav li {
   box-sizing: border-box;
   cursor: none;
 }
+.proj1 ul {
+  width: 80%;
+  margin: 0px auto 10px;
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+  margin-top: 10px;
+}
+.proj1 li {
+  font-size: 14px;
+  color: #aaa;
+  cursor: pointer;
+}
+.proj1 li.on {
+  color: #000;
+}
 .proj1 .main {
   width: 100%;
 }
@@ -80,8 +98,10 @@ nav li {
 }
 .proj1 i {
   color: #ccc;
-  font-size: 30px;
-  cursor: pointer;
+  font-size: 50px;
+}
+.proj1 i:hover {
+  color: #333;
 }
 .proj1 .mainImage {
   width: 80%;
@@ -141,6 +161,7 @@ nav li {
 }
 .proj2 ul {
   display: flex;
+  justify-content: space-between;
   gap: 10px;
   height: 80%;
 }
@@ -151,6 +172,7 @@ nav li {
   height: 100%;
   position: relative;
   transition: 1s;
+  overflow: hidden;
 }
 .proj2 li a {
   display: block;
@@ -171,23 +193,26 @@ nav li {
   bottom: 100px;
   right: 30px;
 }
-.proj2 li:nth-child(1) a {
+.proj2 li:hover a {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.proj2 li:nth-child(1) {
   background: url(img/20252025031853354840741554.jpg);
   background-size: cover;
 }
-.proj2 li:nth-child(2) a {
+.proj2 li:nth-child(2) {
   background: url(img/20252025082049725490983086.jpg);
   background-size: cover;
 }
-.proj2 li:nth-child(3) a {
+.proj2 li:nth-child(3) {
   background: url(img/0814_가구-수정.png);
   background-size: cover;
 }
-.proj2 li:nth-child(4) a {
+.proj2 li:nth-child(4) {
   background: url(img/0813_미술관시안.png);
   background-size: cover;
 }
-.proj2 li:nth-child(5) a {
+.proj2 li:nth-child(5) {
   background: url(img/메인페이지.png);
   background-size: cover;
 }

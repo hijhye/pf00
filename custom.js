@@ -4,6 +4,7 @@ let proj1SubT = document.querySelector("#proj1SubT");
 let proj1Text = document.querySelector("#proj1Text");
 let proj1Img = document.querySelector("#proj1Img");
 let proj1siteLink = document.querySelector("#proj1siteLink");
+let proj1liAll = document.querySelectorAll(".proj1 li");
 
 let proj1List = [
   {
@@ -33,6 +34,7 @@ let proj1List = [
 ];
 
 let i = 0;
+Pro1render();
 proj1Next.addEventListener("click", function () {
   if (i < proj1List.length - 1) {
     i++;
@@ -60,7 +62,22 @@ setInterval(function () {
   Pro1render();
 }, 4000);
 
+proj1liAll.forEach((proj1li, index) => {
+  proj1li.addEventListener("click", function () {
+    i = index;
+    proj1liAll.forEach((proj1li) => {
+      proj1li.classList.remove("on");
+    });
+    proj1li.classList.add("on");
+    Pro1render();
+  });
+});
+
 function Pro1render() {
+  proj1liAll.forEach((proj1li) => {
+    proj1li.classList.remove("on");
+  });
+  proj1liAll[i].classList.add("on");
   proj1SubT.textContent = `${proj1List[i].subTitle}`;
   proj1Img.src = `${proj1List[i].imgsrc}`;
   proj1Text.textContent = `${proj1List[i].text}`;
