@@ -64,7 +64,7 @@ nav li {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
   height: 100vh;
   margin: 0px auto;
@@ -174,7 +174,7 @@ nav li {
   transition: 1s;
   overflow: hidden;
 }
-.proj2 li a {
+.proj2 li > div {
   display: block;
   height: 100%;
 }
@@ -193,9 +193,32 @@ nav li {
   bottom: 100px;
   right: 30px;
 }
-.proj2 li:hover a {
+.proj2 li:hover > div {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.proj2 .btnWrap {
+  position: absolute;
+  width: 200px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.proj2 button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Presentation";
+}
+
 .proj2 li:nth-child(1) {
   background: url(img/20252025031853354840741554.jpg);
   background-size: cover;
@@ -215,4 +238,16 @@ nav li {
 .proj2 li:nth-child(5) {
   background: url(img/메인페이지.png);
   background-size: cover;
+}
+
+@media (max-width: 1200px) {
+  .proj2 ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .proj2 li {
+    width: 100%;
+    height: calc(100% / 5);
+  }
 }
