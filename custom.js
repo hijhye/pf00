@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 let proj1Pre = document.querySelector("#proj1Pre");
 let proj1Next = document.querySelector("#proj1Next");
 let proj1SubT = document.querySelector("#proj1SubT");
@@ -84,16 +86,6 @@ function Pro1render() {
   proj1siteLink.href = `${proj1List[i].src}`;
 }
 
-document.addEventListener("mousemove", (e) => {
-  let mouseX = e.pageX - 15;
-  let mouseY = e.pageY - 15;
-
-  let cursor = document.querySelector(".cursor02");
-  cursor.style.left = mouseX + "px";
-  cursor.style.top = mouseY + "px";
-  cursor.style.display = "block";
-});
-
 let proj2li = document.querySelectorAll(".proj2 li");
 let proj2TextwrapAll = document.querySelectorAll(".proj2 .textWrap");
 console.log(proj2TextwrapAll);
@@ -119,4 +111,131 @@ proj2li.forEach((item) => {
       proj2Textwrap.style.display = "none";
     });
   });
+});
+
+let proj4SubT = document.querySelector("#proj4SubT");
+let proj4ListBoard = document.querySelector("#proj4ListBoard");
+
+let proj4Text = document.querySelector("#proj4Text");
+let proj4List = [
+  {
+    category: "디자인",
+    subTitle: "생일축하해 포스터",
+    text: "일러스트 포스터를 디자인해 제작했습니다.",
+    imgsrc: "img/poster01.png",
+  },
+  {
+    category: "영상",
+    subTitle: "해커톤행사 스케치영상",
+    text: "3일간 진행된 해커톤 행사의 스케치영상을 제작했습니다.",
+    imgsrc: "img/video01.png",
+  },
+  {
+    category: "영상",
+    subTitle: "마을기업 다큐멘터리",
+    text: "마을기업에 대한 이야기를 다큐멘터리로 제작했습니다.",
+    imgsrc: "img/video02.png",
+  },
+  {
+    category: "영상",
+    subTitle: "음악회 스케치영상",
+    text: "세계여행을 컨셉으로 진행된 음악회의 스케치영상을 제작했습니다.",
+    imgsrc: "img/video03.png",
+  },
+  {
+    category: "디자인",
+    subTitle: "생중계용 레이아웃 디자인",
+    text: "디스플레이 미래기술 포럼이라는 주제로 진행된 온오프라인 행사의 생중계용 레이아웃을 제작했습니다.",
+    imgsrc: "img/design01.png",
+  },
+  {
+    category: "디자인",
+    subTitle: "캐릭터 디자인",
+    text: "캐릭터 컨셉을 기획하고 디자인하여 컵을 제작했습니다.",
+    imgsrc: "img/character.png",
+  },
+];
+
+let card = "";
+
+proj4List.forEach((item) => {
+  card += `
+              <li>
+              <div></div>
+                <h4>${item.category}</h4>
+                <img src="${item.imgsrc}">
+              </li>
+  `;
+});
+proj4ListBoard.innerHTML = card;
+
+let proj4ListAll = document.querySelectorAll("#proj4ListBoard li");
+let totalCards = proj4ListAll.length;
+
+console.log(proj4ListAll);
+proj4ListAll.forEach((item, index) => {
+  item.style.zIndex = totalCards - index;
+  item.addEventListener("mouseenter", () => {
+    proj4SubT.textContent = `${proj4List[index].subTitle}`;
+    proj4Text.textContent = `${proj4List[index].text}`;
+    item.style.transform =
+      "perspective(800px) rotateY(-30deg) translateY(-100px)";
+  });
+  item.addEventListener("mouseleave", () => {
+    item.style.transform = "perspective(800px) rotateY(-30deg) translateY(0px)";
+  });
+});
+
+gsap.to("#proj4ListBoard", {
+  x: "-1500px",
+  scrollTrigger: {
+    trigger: ".proj4",
+    start: "top 10%",
+    end: "+200%",
+    scrub: 3,
+    pin: true,
+  },
+});
+
+const cursor02 = document.querySelector(".cursor02");
+const cursor03 = document.querySelector(".cursor03");
+const cursor04 = document.querySelector(".cursor04");
+const allCursors = [cursor02, cursor03, cursor04];
+
+document.addEventListener("mousemove", (e) => {
+  let mouseX = e.pageX - 15;
+  let mouseY = e.pageY - 15;
+  let activeCursor = null;
+
+  if (
+    e.target.closest(".proj1") ||
+    e.target.closest(".proj2") ||
+    e.target.closest(".proj3")
+  ) {
+    activeCursor = cursor02;
+  } else if (e.target.closest(".proj4")) {
+    activeCursor = cursor03;
+  } else if (e.target.closest(".outro")) {
+    activeCursor = cursor04;
+  }
+
+  allCursors.forEach((cursor) => {
+    if (cursor) cursor.style.display = "none";
+  });
+
+  if (activeCursor) {
+    activeCursor.style.display = "block";
+    activeCursor.style.left = mouseX + "px";
+    activeCursor.style.top = mouseY + "px";
+  }
+});
+
+let bubbles = document.querySelectorAll(".bubble");
+bubbles.forEach((bubble) => {
+  let randomX = Math.random() * 100;
+  let randomY = Math.random() * 100;
+  let randomScale = Math.random();
+  bubble.style.left = `${randomX}%`;
+  bubble.style.top = `${randomY}%`;
+  bubble.style.transform = `scale(${randomScale})`;
 });

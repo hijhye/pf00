@@ -23,6 +23,7 @@ img {
 body {
   width: 100%;
   font-family: "Presentation";
+  cursor: none;
 }
 h2 {
   font-size: 32px;
@@ -36,7 +37,20 @@ h3 {
 p {
   font-size: 32px;
 }
-
+.cursor02,
+.cursor03,
+.cursor04 {
+  position: absolute;
+  width: 30px;
+  z-index: 50;
+  pointer-events: none;
+  display: none;
+}
+.cursor02 img,
+.cursor03 img,
+.cursor04 img {
+  width: 100%;
+}
 header {
   width: 100%;
   display: flex;
@@ -70,7 +84,6 @@ nav li {
   margin: 0px auto;
   padding: 5%;
   box-sizing: border-box;
-  cursor: none;
 }
 .proj1 ul {
   width: 80%;
@@ -138,16 +151,6 @@ nav li {
 }
 .proj1 p {
   margin-top: 20px;
-}
-.cursor02 {
-  position: absolute;
-  width: 30px;
-  z-index: 50;
-  pointer-events: none;
-  display: none;
-}
-.cursor02 img {
-  width: 100%;
 }
 
 .proj2 {
@@ -240,6 +243,55 @@ nav li {
   background-size: cover;
 }
 
+.proj4 {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  padding: 50px 5%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.proj4 h3 {
+  height: 50px;
+}
+.proj4 ul {
+  display: flex;
+}
+.proj4 li {
+  width: 500px;
+  height: 400px;
+  flex-shrink: 0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 100px 0px;
+  position: relative;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  perspective-origin: 100% 0%;
+  transform: perspective(800px) rotateY(-30deg);
+}
+
+.proj4 li div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.proj4 h4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.proj4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 1200px) {
   .proj2 ul {
     width: 100%;
@@ -249,5 +301,84 @@ nav li {
   .proj2 li {
     width: 100%;
     height: calc(100% / 5);
+  }
+}
+
+.ocean {
+  height: 5%;
+  width: 100%;
+  background: #015871;
+  position: relative;
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg)
+    repeat-x;
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 20s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 17s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 15s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+
+.outro {
+  width: 100%;
+  height: 100vh;
+  background: #015871;
+  position: relative;
+}
+.bubble {
+  position: absolute;
+  background: url(img/bubble.png);
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  animation: spin 5s infinite;
+}
+.bubble:nth-child(1) {
+  animation-delay: -1s;
+}
+.bubble:nth-child(2) {
+  animation-delay: 0s;
+}
+.bubble:nth-child(3) {
+  animation-delay: 1s;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(100deg) translate(0, 0);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(100deg);
   }
 }
