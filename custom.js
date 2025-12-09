@@ -197,17 +197,20 @@ gsap.to("#proj4ListBoard", {
   },
 });
 
+const cursor01 = document.querySelector(".cursor01");
 const cursor02 = document.querySelector(".cursor02");
 const cursor03 = document.querySelector(".cursor03");
 const cursor04 = document.querySelector(".cursor04");
-const allCursors = [cursor02, cursor03, cursor04];
+const allCursors = [cursor01, cursor02, cursor03, cursor04];
 
 document.addEventListener("mousemove", (e) => {
-  let mouseX = e.pageX - 15;
-  let mouseY = e.pageY - 15;
+  let mouseX = e.clientX - 15;
+  let mouseY = e.clientY - 15;
   let activeCursor = null;
 
-  if (
+  if (e.target.closest("header") || e.target.closest(".intro")) {
+    activeCursor = cursor01;
+  } else if (
     e.target.closest(".proj1") ||
     e.target.closest(".proj2") ||
     e.target.closest(".proj3")

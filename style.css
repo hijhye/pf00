@@ -37,10 +37,11 @@ h3 {
 p {
   font-size: 32px;
 }
+.cursor01,
 .cursor02,
 .cursor03,
 .cursor04 {
-  position: absolute;
+  position: fixed;
   width: 30px;
   z-index: 50;
   pointer-events: none;
